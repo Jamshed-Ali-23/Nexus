@@ -62,7 +62,7 @@ export const RoleBasedNavigation: React.FC = () => {
   ];
   
   // Role-specific navigation items
-  const roleSpecificNavItems = user.role === 'entrepreneur' 
+  const roleSpecificNavItems = (user?.role || 'investor') === 'entrepreneur' 
     ? [
         { to: '/investors', icon: <Users size={20} />, label: 'Find Investors' },
         { to: '/deals', icon: <Handshake size={20} />, label: 'Deals & Funding' },
