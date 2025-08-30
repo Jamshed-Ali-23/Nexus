@@ -1,16 +1,9 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": { 
-        "distDir": "dist",
-        "installCommand": "npm install --include=dev",
-        "buildCommand": "npm run build"
-      }
-    }
-  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "regions": ["iad1"],
   "routes": [
     {
       "src": "/assets/(.*)",
@@ -18,24 +11,21 @@
       "dest": "/assets/$1"
     },
     {
-      "src": "^/static/(.*)",
+      "src": "/static/(.*)",
       "dest": "/static/$1"
     },
     {
-      "src": "^/favicon.ico",
+      "src": "/favicon.ico",
       "dest": "/favicon.ico"
     },
     {
-      "src": "^/manifest.json",
+      "src": "/manifest.json",
       "dest": "/manifest.json"
     },
     {
-      "src": "^/(.*)",
+      "src": "/(.*)",
       "dest": "/index.html",
       "status": 200
     }
-  ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
