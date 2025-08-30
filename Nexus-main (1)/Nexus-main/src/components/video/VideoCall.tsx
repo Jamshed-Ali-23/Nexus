@@ -3,13 +3,11 @@ import { Button } from '../ui/Button';
 import { Mic, MicOff, Video, VideoOff, PhoneOff, MonitorSmartphone } from 'lucide-react';
 
 interface VideoCallProps {
-  callId: string;
   participantName: string;
   onEndCall?: () => void;
 }
 
 export const VideoCall: React.FC<VideoCallProps> = ({
-  callId,
   participantName,
   onEndCall
 }) => {

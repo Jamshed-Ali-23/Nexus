@@ -39,7 +39,7 @@ const initialCalls: CallItem[] = [
 ];
 
 const VideoCallListPage: React.FC = () => {
-  const [calls, setCalls] = useState<CallItem[]>(initialCalls);
+  const [calls] = useState<CallItem[]>(initialCalls);
   const [filter, setFilter] = useState<'all' | 'scheduled' | 'live' | 'completed'>('all');
 
   const filteredCalls = filter === 'all' 

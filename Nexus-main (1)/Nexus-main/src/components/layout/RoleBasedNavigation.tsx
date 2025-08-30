@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { 
-  Home, Users, MessageSquare, Bell, FileText, 
+  Home, Users, MessageSquare, Bell, FileText,
   Settings, HelpCircle, Handshake, Calendar, Video,
   Wallet, Search, PieChart, Building
 } from 'lucide-react';
@@ -42,6 +42,16 @@ const NavItem: React.FC<NavItemProps> = ({ to, icon, label }) => {
 export const RoleBasedNavigation: React.FC = () => {
   const { user } = useAuth();
   
+  // Listen for close menu events
+  React.useEffect(() => {
+    const handleCloseMenu = () => {
+      // This will be used by NavItem to close the mobile menu
+    };
+    
+    window.addEventListener('closeMobileMenu', handleCloseMenu);
+    return () => window.removeEventListener('closeMobileMenu', handleCloseMenu);
+  }, []);
+  
   if (!user) return null;
   
   // Common navigation items for all users (moved to bottom)
@@ -72,16 +82,6 @@ export const RoleBasedNavigation: React.FC = () => {
         { to: '/portfolio', icon: <PieChart size={20} />, label: 'Portfolio' },
         { to: '/deals', icon: <Building size={20} />, label: 'Investment Deals' },
       ];
-
-  // Listen for close menu events
-  React.useEffect(() => {
-    const handleCloseMenu = () => {
-      // This will be used by NavItem to close the mobile menu
-    };
-    
-    window.addEventListener('closeMobileMenu', handleCloseMenu);
-    return () => window.removeEventListener('closeMobileMenu', handleCloseMenu);
-  }, []);
 
   return (
     <div className="flex-1 flex flex-col h-full">

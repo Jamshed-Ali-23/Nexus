@@ -7,7 +7,7 @@ import { Input } from '../../components/ui/Input';
 import { Badge } from '../../components/ui/Badge';
 import { EntrepreneurCard } from '../../components/entrepreneur/EntrepreneurCard';
 import { useAuth } from '../../context/AuthContext';
-import { Entrepreneur } from '../../types';
+// import { Entrepreneur } from '../../types';
 import { entrepreneurs } from '../../data/users';
 import { getRequestsFromInvestor } from '../../data/collaborationRequests';
 import { getUpcomingEvents } from '../../data/calendarEvents';
@@ -20,8 +20,8 @@ export const InvestorDashboard: React.FC = () => {
   const { user } = useAuth();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedIndustries, setSelectedIndustries] = useState<string[]>([]);
-  const [upcomingMeetings, setUpcomingMeetings] = useState<any[]>([]);
-  const [liveCalls, setLiveCalls] = useState<any[]>([]);
+  const [upcomingMeetings, setUpcomingMeetings] = useState<Array<{id: string; type: string; participants: string[]; createdBy: string; end: string}>>([]);
+  const [liveCalls, setLiveCalls] = useState<Array<{id: string; participants: string[]}>>([]);
   const isMobile = useMediaQuery('(max-width: 640px)');
   
   useEffect(() => {
@@ -45,7 +45,7 @@ export const InvestorDashboard: React.FC = () => {
   
   // Get collaboration requests sent by this investor
   const sentRequests = getRequestsFromInvestor(user.id);
-  const requestedEntrepreneurIds = sentRequests.map(req => req.entrepreneurId);
+  // const requestedEntrepreneurIds = sentRequests.map(req => req.entrepreneurId);
   
   // Filter entrepreneurs based on search and industry filters
   const filteredEntrepreneurs = entrepreneurs.filter(entrepreneur => {

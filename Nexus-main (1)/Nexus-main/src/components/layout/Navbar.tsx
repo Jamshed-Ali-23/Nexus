@@ -154,7 +154,7 @@ export const Navbar: React.FC = () => {
               {/* Dropdown menu */}
               <div 
                 id="profile-menu"
-                className={`absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50 transition-all duration-150 ${
+                className={`fixed right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50 transition-all duration-150 ${
                   isProfileOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
                 }`}
                 role="menu"
@@ -162,10 +162,11 @@ export const Navbar: React.FC = () => {
                 aria-labelledby="menu-button"
                 style={{
                   position: 'absolute',
-                  top: '100%',
+                  top: 'calc(100% + 0.5rem)',
                   right: 0,
                   transformOrigin: 'top right',
-                  willChange: 'transform, opacity'
+                  willChange: 'transform, opacity',
+                  zIndex: 50
                 }}
               >
                 {/* User info section */}

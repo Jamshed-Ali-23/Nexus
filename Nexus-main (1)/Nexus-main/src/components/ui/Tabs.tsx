@@ -2,17 +2,11 @@ import React from 'react';
 import { cn } from '../../utils';
 
 interface TabsProps {
-  defaultValue?: string;
-  value?: string;
-  onValueChange?: (value: string) => void;
   className?: string;
   children: React.ReactNode;
 }
 
 export const Tabs: React.FC<TabsProps> = ({
-  defaultValue,
-  value,
-  onValueChange,
   className,
   children,
   ...props
@@ -86,14 +80,12 @@ export const TabsTrigger: React.FC<TabsTriggerProps> = ({
 };
 
 interface TabsContentProps {
-  value: string;
   active?: boolean;
   className?: string;
   children: React.ReactNode;
 }
 
 export const TabsContent: React.FC<TabsContentProps> = ({
-  value,
   active,
   className,
   children,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { User, CircleDollarSign, Building2, LogIn, AlertCircle, Mail, Lock, Shield } from 'lucide-react';
+import { CircleDollarSign, Building2, LogIn, AlertCircle, Mail, Lock, Shield } from 'lucide-react';
 import { TwoFactorAuth } from '../../components/auth/TwoFactorAuth';
 import { useAuth } from '../../context/AuthContext';
 import { Button } from '../../components/ui/Button';
@@ -14,7 +14,7 @@ export const LoginPage: React.FC = () => {
   const [password, setPassword] = useState('');
   const [role, setRole] = useState<UserRole>('entrepreneur');
   const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [, setIsLoading] = useState(false);
   const [loginStep, setLoginStep] = useState<'credentials' | 'twoFactor'>('credentials');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const isMobile = useMediaQuery('(max-width: 768px)');

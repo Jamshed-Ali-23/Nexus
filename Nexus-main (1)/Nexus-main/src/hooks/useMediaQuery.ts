@@ -48,7 +48,8 @@ export const breakpoints = {
  * @returns A boolean indicating whether the screen is mobile
  */
 export function useIsMobile(): boolean {
-  return !useMediaQuery(breakpoints.md);
+  const matches = useMediaQuery(breakpoints.md);
+  return !matches;
 }
 
 /**
@@ -56,7 +57,9 @@ export function useIsMobile(): boolean {
  * @returns A boolean indicating whether the screen is tablet
  */
 export function useIsTablet(): boolean {
-  return useMediaQuery(breakpoints.md) && !useMediaQuery(breakpoints.lg);
+  const matchesMd = useMediaQuery(breakpoints.md);
+  const matchesLg = useMediaQuery(breakpoints.lg);
+  return matchesMd && !matchesLg;
 }
 
 /**

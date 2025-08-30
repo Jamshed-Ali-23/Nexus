@@ -33,11 +33,11 @@ const mockCalls: Record<string, CallDetails> = {
 };
 
 const VideoCallPage: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
   const navigate = useNavigate();
   const { user } = useAuth();
   const [callDetails, setCallDetails] = useState<CallDetails | null>(null);
-  const [isConnecting, setIsConnecting] = useState(true);
+  // const [isConnecting, setIsConnecting] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [participantName, setParticipantName] = useState(user?.name || '');
   const [showNameInput, setShowNameInput] = useState(!user?.name);

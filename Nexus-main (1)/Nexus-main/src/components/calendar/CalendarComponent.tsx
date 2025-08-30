@@ -3,7 +3,7 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { EventInput } from '@fullcalendar/core';
+import { EventInput, DateSelectArg, EventClickArg, EventChangeArg } from '@fullcalendar/core';
 
 interface CalendarComponentProps {
   initialEvents?: EventInput[];
@@ -20,7 +20,7 @@ export const CalendarComponent: React.FC<CalendarComponentProps> = ({
 }) => {
   const [events, setEvents] = useState<EventInput[]>(initialEvents);
 
-  const handleDateSelect = (selectInfo: any) => {
+  const handleDateSelect = (selectInfo: DateSelectArg) => {
     const title = prompt('Please enter a title for your meeting');
     if (title) {
       const newEvent = {
@@ -40,7 +40,7 @@ export const CalendarComponent: React.FC<CalendarComponentProps> = ({
     selectInfo.view.calendar.unselect();
   };
 
-  const handleEventClick = (clickInfo: any) => {
+  const handleEventClick = (clickInfo: EventClickArg) => {
     if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
       clickInfo.event.remove();
       
@@ -50,7 +50,7 @@ export const CalendarComponent: React.FC<CalendarComponentProps> = ({
     }
   };
 
-  const handleEventChange = (changeInfo: any) => {
+  const handleEventChange = (changeInfo: EventChangeArg) => {
     if (onEventChange) {
       onEventChange({
         id: changeInfo.event.id,

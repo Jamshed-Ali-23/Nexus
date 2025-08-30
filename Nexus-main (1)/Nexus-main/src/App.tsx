@@ -1,4 +1,6 @@
 import React from 'react';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { PaymentProvider } from './context/PaymentContext';

@@ -2,9 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { 
-  Home, Users, MessageSquare, Bell, FileText, 
-  Settings, HelpCircle, Handshake, Calendar, Video,
-  Wallet, TrendingUp, Search, PieChart, Building
+  Home, Users, MessageSquare,
+  Settings, Wallet, Search
 } from 'lucide-react';
 
 interface MobileNavItemProps {

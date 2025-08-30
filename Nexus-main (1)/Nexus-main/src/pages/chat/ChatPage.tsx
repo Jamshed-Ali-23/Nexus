@@ -13,11 +13,11 @@ import { getMessagesBetweenUsers, sendMessage, getConversationsForUser } from '.
 import { MessageCircle } from 'lucide-react';
 
 export const ChatPage: React.FC = () => {
-  const { userId } = useParams<{ userId: string }>();
+  const { userId } = useParams();
   const { user: currentUser } = useAuth();
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState('');
-  const [conversations, setConversations] = useState<any[]>([]);
+  const [conversations, setConversations] = useState<{id: string; participants: string[]; lastMessage?: Message}[]>([]);
   const messagesEndRef = useRef<null | HTMLDivElement>(null);
   
   const chatPartner = userId ? findUserById(userId) : null;

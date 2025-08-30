@@ -8,7 +8,6 @@ interface ResponsiveLayoutProps {
   header?: React.ReactNode;
   footer?: React.ReactNode;
   sidebarWidth?: string;
-  collapsible?: boolean;
 }
 
 /**
@@ -21,7 +20,6 @@ export const ResponsiveLayout: React.FC<ResponsiveLayoutProps> = ({
   header,
   footer,
   sidebarWidth = 'w-64',
-  collapsible = true,
 }) => {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
   const location = useLocation();

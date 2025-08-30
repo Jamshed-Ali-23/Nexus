@@ -19,9 +19,9 @@ import { useMediaQuery } from '../../hooks/useMediaQuery';
 export const EntrepreneurDashboard: React.FC = () => {
   const { user } = useAuth();
   const [collaborationRequests, setCollaborationRequests] = useState<CollaborationRequest[]>([]);
-  const [recommendedInvestors, setRecommendedInvestors] = useState(investors.slice(0, 3));
-  const [upcomingMeetings, setUpcomingMeetings] = useState<any[]>([]);
-  const [liveCalls, setLiveCalls] = useState<any[]>([]);
+  const [recommendedInvestors] = useState(investors.slice(0, 3));
+  const [upcomingMeetings, setUpcomingMeetings] = useState<Array<{id: string; type: string; participants: string[]; createdBy: string; end: string}>>([]);
+  const [liveCalls, setLiveCalls] = useState<Array<{id: string; participants: string[]}>>([]);
   
   useEffect(() => {
     if (user) {
@@ -52,11 +52,12 @@ export const EntrepreneurDashboard: React.FC = () => {
     );
   };
   
+  // Define useMediaQuery result before any conditional returns
+  const isMobile = useMediaQuery('(max-width: 640px)');
+  
   if (!user) return null;
   
   const pendingRequests = collaborationRequests.filter(req => req.status === 'pending');
-  
-  const isMobile = useMediaQuery('(max-width: 640px)');
   
   return (
     <div className="space-y-6 animate-fade-in">

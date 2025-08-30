@@ -43,7 +43,7 @@ const DocumentChamberPage: React.FC = () => {
     setDocuments([...documents, ...newDocuments]);
   };
   
-  const handleSignatureSave = (signatureDataUrl: string) => {
+  const handleSignatureSave = (/* signatureDataUrl: string */) => {
     if (!selectedDocument) return;
     
     // In a real app, this would save the signature to the document

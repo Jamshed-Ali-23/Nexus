@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { usePayment } from '../../context/PaymentContext';
-import { PaymentFormData } from '../../types/payment';
+// import { PaymentFormData } from '../../types/payment';
 import { Entrepreneur } from '../../types/index';
 
 interface FundingDealProps {
