@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "installCommand": "npm install",
+  "buildCommand": "cd Nexus-main && npm install && npm run build",
+  "outputDirectory": "Nexus-main/dist",
+  "installCommand": "cd Nexus-main && npm install",
   "framework": "vite",
-  "outputDirectory": "dist",
   "routes": [
     {
       "src": "/assets/(.*)",
