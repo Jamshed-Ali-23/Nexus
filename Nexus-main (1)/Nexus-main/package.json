@@ -5,9 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npx vite build",
+    "build": "vite build",
+    "preview": "vite preview",
     "lint": "eslint .",
-    "preview": "npx vite preview"
+    "vercel-build": "node vercel-build.js",
+    "start": "vite preview --port 3000"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
   },
   "dependencies": {
     "@fullcalendar/daygrid": "^6.1.19",
