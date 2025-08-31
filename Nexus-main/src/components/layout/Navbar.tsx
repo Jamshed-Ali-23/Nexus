@@ -106,7 +106,7 @@ export const Navbar: React.FC = () => {
           </div>
           
           {/* Desktop navigation */}
-          <div className="hidden md:flex md:items-center space-x-1 overflow-x-auto px-4">
+          <div className="hidden md:flex md:items-center space-x-1 px-4 overflow-visible">
             <NavItem 
               to="/dashboard" 
               icon={<Home size={18} />} 
@@ -154,19 +154,16 @@ export const Navbar: React.FC = () => {
               {/* Dropdown menu */}
               <div 
                 id="profile-menu"
-                className={`fixed right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50 transition-all duration-150 ${
+                className={`absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50 transition-all duration-150 ${
                   isProfileOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
                 }`}
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="menu-button"
                 style={{
-                  position: 'absolute',
-                  top: 'calc(100% + 0.5rem)',
-                  right: 0,
+                  top: '100%',
                   transformOrigin: 'top right',
                   willChange: 'transform, opacity',
-                  zIndex: 50
                 }}
               >
                 {/* User info section */}

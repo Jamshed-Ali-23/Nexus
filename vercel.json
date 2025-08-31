@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "buildCommand": "cd Nexus-main\ (1)\/Nexus-main && npm install && npm run build",
+  "outputDirectory": "Nexus-main (1)/Nexus-main/dist",
+  "installCommand": "cd Nexus-main\ (1)\/Nexus-main && npm install",
+  "framework": "vite",
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "headers": { "cache-control": "public, max-age=31536000, immutable" },
+      "dest": "/assets/$1"
+    },
+    { "handle": "filesystem" },
+    {
+      "src": "^/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
